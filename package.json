@@ -1,0 +1,64 @@
+{
+  "name": "n8n-nodes-actionbox",
+  "version": "0.1.0",
+  "description": "Human approval workflows with the hosted ActionBox service",
+  "license": "MIT",
+  "homepage": "https://actionbox.cloud",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "author": {
+    "name": "ActionBox",
+    "email": "info@actionbox.cloud"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ActionBox-Cloud/n8n-nodes-actionbox.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "node scripts/release-disabled.cjs",
+    "prepublishOnly": "node scripts/release-disabled.cjs",
+    "test": "npm run build && node --test tests/*.test.cjs",
+    "typecheck": "tsc --noEmit",
+    "test:runtime": "python3 tests/runtime.py"
+  },
+  "files": [
+    "dist/nodes",
+    "dist/credentials",
+    "examples/approval.json",
+    "LOCAL_DOCKER.md",
+    "CONTRIBUTING.md",
+    "scripts/release-disabled.cjs"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/ActionBoxApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ActionBox/ActionBox.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "0.48.2",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "release-it": "^19.0.4",
+    "typescript": "5.9.2",
+    "n8n-workflow": "2.38.1",
+    "n8n-core": "2.38.2",
+    "@types/node": "24.10.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+name: Publication gate
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  publication-disabled:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'Registry publishing is disabled until pilot acceptance and trusted publisher setup.'
+          exit 1
