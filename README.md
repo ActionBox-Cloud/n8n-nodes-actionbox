@@ -3,9 +3,10 @@
 Request a human decision in [ActionBox](https://actionbox.cloud), pause an n8n
 workflow, and continue after a verified response.
 
-**Preview source release.** This connector is available for evaluation from source.
-It has not been published to npm or verified for n8n Cloud. npm publishing is
-disabled while pilot acceptance is pending.
+This connector targets n8n **2.38.7** and is available from source. It has not
+been verified for n8n Cloud. Published versions, when available, are listed on
+[npm](https://www.npmjs.com/package/n8n-nodes-actionbox). For source installation,
+follow [LOCAL_DOCKER.md](LOCAL_DOCKER.md).
 
 The connector is MIT licensed. ActionBox is proprietary hosted software; this
 repository contains only the integration client. All service requests go to

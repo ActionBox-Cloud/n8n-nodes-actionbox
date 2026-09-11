@@ -13,5 +13,8 @@ dependencies, environment-variable access, filesystem access, or telemetry to
 node code. Tests may use isolated fixtures. Keep credential and callback data out
 of ordinary outputs, logs, and examples.
 
-npm publishing is disabled during evaluation. Source synchronization does not
-publish packages or imply n8n verification.
+Maintainers publish from the public repository through `publish.yml`, using a
+version tag whose commit passed CI. `npm run release` dispatches that workflow
+for the package version; it does not create a tag or change source files.
+Source synchronization alone does not publish a package. A package release does
+not imply n8n verification.
