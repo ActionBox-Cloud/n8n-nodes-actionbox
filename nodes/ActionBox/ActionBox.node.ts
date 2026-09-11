@@ -201,12 +201,13 @@ function textParameter(
 
 // n8n restart webhooks belong to a waiting execution, not a registered trigger.
 // Approval waiting is deliberately not exposed as an AI tool in this release.
-/* eslint-disable @n8n/community-nodes/webhook-lifecycle-complete, @n8n/community-nodes/node-usable-as-tool */
 export class ActionBox implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'ActionBox',
 		name: 'actionBox',
 		group: ['output'],
+		// n8n represents disabled tool use as undefined; its type does not allow false.
+		usableAsTool: undefined,
 		version: 1,
 		description: 'Request human approval and manage Actions in ActionBox',
 		defaults: { name: 'ActionBox' },
@@ -226,6 +227,23 @@ export class ActionBox implements INodeType {
 			},
 		],
 		properties,
+	};
+
+	// Each Action gets its callback URL in execute(). There is no Source-level
+	// webhook subscription to register or remove when a workflow is activated.
+	// n8n owns the execution-specific restart route and its cleanup.
+	webhookMethods = {
+		default: {
+			checkExists(): Promise<boolean> {
+				return Promise.resolve(true);
+			},
+			create(): Promise<boolean> {
+				return Promise.resolve(true);
+			},
+			delete(): Promise<boolean> {
+				return Promise.resolve(true);
+			},
+		},
 	};
 
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {

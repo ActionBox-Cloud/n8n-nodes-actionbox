@@ -3,10 +3,20 @@
 Request a human decision in [ActionBox](https://actionbox.cloud), pause an n8n
 workflow, and continue after a verified response.
 
-This connector targets n8n **2.38.7** and is available from source. It has not
-been verified for n8n Cloud. Published versions, when available, are listed on
-[npm](https://www.npmjs.com/package/n8n-nodes-actionbox). For source installation,
-follow [LOCAL_DOCKER.md](LOCAL_DOCKER.md).
+Install [n8n-nodes-actionbox](https://www.npmjs.com/package/n8n-nodes-actionbox)
+on an n8n instance you administer. The tested compatibility target is n8n
+**2.38.7**. This node has not been verified for n8n Cloud.
+
+## Installation
+
+1. Sign in to n8n as an owner or admin.
+2. Open **Settings → Community Nodes → Install**.
+3. Enter `n8n-nodes-actionbox` (or append `@0.1.0` to install the first release).
+4. Read n8n's community-node notice, then select **Install**.
+5. Add an **ActionBox** node and configure the credentials below.
+
+For a complete walkthrough, see the [ActionBox n8n guide](https://actionbox.cloud/docs/n8n).
+For source installation, follow [LOCAL_DOCKER.md](LOCAL_DOCKER.md).
 
 The connector is MIT licensed. ActionBox is proprietary hosted software; this
 repository contains only the integration client. All service requests go to

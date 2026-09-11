@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-actionbox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Human approval workflows with the hosted ActionBox service",
   "license": "MIT",
   "homepage": "https://actionbox.cloud",
@@ -19,7 +19,7 @@
     "build": "n8n-node build",
     "build:watch": "tsc --watch",
     "dev": "n8n-node dev",
-    "lint": "n8n-node lint",
+    "lint": "n8n-node lint && eslint nodes credentials --no-inline-config",
     "lint:fix": "n8n-node lint --fix",
     "release": "node scripts/release.cjs",
     "prepublishOnly": "node scripts/check-publish.cjs",

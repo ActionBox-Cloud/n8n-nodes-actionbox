@@ -40,8 +40,4 @@ jobs:
       - run: npm run test:runtime
       - run: npm pack --dry-run
       - name: Publish with provenance
-        env:
-          # Bootstrap the first release with a granular token. After configuring
-          # npm Trusted Publishing for this workflow/environment, remove it.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
